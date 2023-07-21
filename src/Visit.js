@@ -4,10 +4,14 @@ import { Home as HomeIcon, Event as EventIcon, AccessTime as TimeIcon } from '@m
 import './Visit.css';
 
 const Visit = ({ item }) => {
+    
+    let schedulingTimes = item.schedulingTimeFrom.substring(0, 5) + "-" + item.schedulingTimeTo.substring(0, 5); 
+    let fullName = item.name + " " + item.lastName;
+
     return (
         <Card className="visit-card">
             <CardHeader 
-                title={<Typography variant="h4">{item.name}</Typography>} 
+                title={<Typography variant="h4">{fullName}</Typography>} 
                 subheader={
                     <div>
                         <Typography variant="h6">{item.phone}</Typography>
@@ -27,7 +31,7 @@ const Visit = ({ item }) => {
                     </ListItem>
                     <ListItem>
                         <ListItemIcon><TimeIcon /></ListItemIcon>
-                        <Typography variant="body1">{item.schedulingTimeFrom}</Typography>
+                        <Typography variant="body1">{schedulingTimes}</Typography>
                     </ListItem>
                 </List>
                 <Button variant="contained" color="primary">Editar</Button>
