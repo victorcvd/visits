@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import AWS from 'aws-sdk';
+import Visit from './Visit';
 
 AWS.config.update({
     region: "us-east-1", 
@@ -15,7 +16,7 @@ function App() {
 
     useEffect(() => {
         const params = {
-            TableName : "brokers",
+            TableName : "tb_scheduling_detalle",
         };
 
         docClient.scan(params, function(err, data) {
@@ -31,7 +32,7 @@ function App() {
     return (
         <div>
             {data.map(item => (
-                <div key={item.id}>{item.name}</div>
+                <Visit key={item.id} item={item} />
             ))}
         </div>
     );
