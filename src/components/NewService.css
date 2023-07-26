@@ -1,0 +1,15 @@
+.visit-card {
+    font-family: 'Open Sans', sans-serif;
+    margin: 40px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
+}
+
+.visit-card h4 {
+    font-size: 28px;
+}
+
+.visit-card h6 {
+    font-size: 16px;
+}
