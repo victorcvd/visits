@@ -51,34 +51,7 @@ const NewService = () => {
       if (error) {
         console.error('Error saving data to DynamoDB', error);
       } else {
-        console.log('Successfully saved data to DynamoDB', data);
-
-        const url = "https://hooks.slack.com/services/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";
-        const headers = {"Content-Type": "application/json"};
-
-        const exit_text = `*Fecha desocupación: *${state.visit_date}.
-        *Razón desocupación: *${state.exit_reason}.
-        `;
-
-        const text_slack = `*Nueva solicitud servicios: ${state.category}*
-${state.property}
-
-*Arrendatario: *${state.name}
-*Teléfono rrendatario: *${state.phone}
-*Mail arrendatario: *${state.email}
-${state.category === 'desocupacion' ? exit_text : ""}
-*Comentario: *${state.comment}
-`;
-        const message = {"text": text_slack};
-
-        fetch(url, {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify(message)
-        })
-        .then(response => response.json())
-        .then(message => console.log(message))
-        .catch(error => console.error('Error:', error));
+        console.log('Successfully saved data to DynamoDB', data);        
 
         setState({
           property: '',
